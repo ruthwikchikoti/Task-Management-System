@@ -17,7 +17,7 @@ const Dashboard = () => {
     setError(null);
 
     try {
-      const { data } = await axios.get("http://localhost:5001/api/tasks", {
+      const { data } = await axios.get("https://backend-task-management-b09y.onrender.com/api/tasks", {
         headers: { Authorization: `Bearer ${token}` },
       });
       setTasks(data.tasks || []); 
@@ -37,7 +37,7 @@ const Dashboard = () => {
   const handleAddTask = async (task) => {
     const token = localStorage.getItem("token");
     try {
-      const { data } = await axios.post("http://localhost:5001/api/tasks", task, {
+      const { data } = await axios.post("https://backend-task-management-b09y.onrender.com/api/tasks", task, {
         headers: { Authorization: `Bearer ${token}` },
       });
       setTasks((prevTasks) => [...prevTasks, data.task]);
@@ -54,7 +54,7 @@ const Dashboard = () => {
 
     const token = localStorage.getItem("token");
     try {
-      await axios.delete(`http://localhost:5001/api/tasks/${id}`, {
+      await axios.delete(`https://backend-task-management-b09y.onrender.com/api/tasks/${id}`, {
         headers: { Authorization: `Bearer ${token}` },
       });
       setTasks((prevTasks) => prevTasks.filter((task) => task.id !== id));
@@ -68,7 +68,7 @@ const Dashboard = () => {
   const handleUpdateTask = async (task) => {
     const token = localStorage.getItem("token");
     try {
-      await axios.put(`http://localhost:5001/api/tasks/${task.id}`, task, {
+      await axios.put(`https://backend-task-management-b09y.onrender.com/api/tasks/${task.id}`, task, {
         headers: { Authorization: `Bearer ${token}` },
       });
       setTasks((prevTasks) =>

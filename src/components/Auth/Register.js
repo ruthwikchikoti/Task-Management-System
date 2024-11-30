@@ -8,7 +8,7 @@ const Register = () => {
   const handleRegister = async (e) => {
     e.preventDefault();
     try {
-      await axios.post("http://localhost:5001/api/auth/register", {
+      await axios.post("https://backend-task-management-b09y.onrender.com/api/auth/register", {
         username,
         password,
       });
